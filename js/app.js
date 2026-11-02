@@ -556,13 +556,18 @@ async function fetchJson(path, options = {}) {
 }
 
 async function detectLiveServer() {
-  try {
-    const response = await fetch("/api/health", { cache: "no-store" });
-    if (!response.ok) throw new Error("no server");
-    const payload = await response.json();
-    data.liveServer = Boolean(payload?.ok);
-  } catch {
+  const localHost = ["localhost", "127.0.0.1", "::1"].includes(location.hostname);
+  if (!localHost) {
     data.liveServer = false;
+  } else {
+    try {
+      const response = await fetch("/api/health", { cache: "no-store" });
+      if (!response.ok) throw new Error("no server");
+      const payload = await response.json();
+      data.liveServer = Boolean(payload?.ok);
+    } catch {
+      data.liveServer = false;
+    }
   }
   if (dom.liveStatus) {
     dom.liveStatus.innerHTML = data.liveServer
