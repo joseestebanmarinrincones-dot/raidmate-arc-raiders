@@ -21,7 +21,7 @@
 - **Eventos por región**: EU, NA, SA, Asia y Oceanía. Muestra qué está activo, cuándo empieza el siguiente, cuánto dura y el intervalo entre eventos de cada mapa.
 - **Base de datos de objetos** con nombre, rareza, categoría, peso, stack, zonas de loot y valor.
 - **Valor de comerciante en coins** y **referencia de mercado comunitario en semillas** (MetaForge Marketplace).
-- **Mapa de calor interactivo** por objeto y mapa. Zoom con rueda, botones o pellizco; arrastre para mover; ranking de mapas y mejores sitios.
+- **Mapa de calor interactivo** por objeto y mapa. Zoom con rueda o botones; arrastre para mover; ranking de mapas y mejores sitios. En móvil, usa los botones de zoom.
 - **Funciona como web app** en GitHub Pages y también en local con un servidor Python incluido.
 - **Datos actualizados**: los eventos se refrescan cada hora mediante GitHub Actions; la versión web siempre usa la última versión publicada.
 
