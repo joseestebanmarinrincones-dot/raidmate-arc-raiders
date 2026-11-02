@@ -303,6 +303,7 @@ def fetch_all_items() -> list[dict[str, Any]]:
             print(f"items: using cached raw data ({len(cached)})")
             return cached
 
+    cache.parent.mkdir(parents=True, exist_ok=True)
     records: list[dict[str, Any]] = []
     page = 1
     while True:
@@ -394,6 +395,7 @@ def process_items(raw_items: list[dict[str, Any]], market: dict[str, Any]) -> li
 
 def fetch_map_markers(map_id: str) -> list[dict[str, Any]]:
     cache = RAW / f"map-{map_id}.json"
+    cache.parent.mkdir(parents=True, exist_ok=True)
     if cache.exists():
         return json.loads(cache.read_text(encoding="utf-8"))
     url = f"{MAP_API}?tableID=arc_map_data&mapID={urllib.parse.quote(map_id)}"
@@ -794,6 +796,7 @@ def main() -> None:
     parser.add_argument("--market-limit", type=int, default=120, help="Max item pages to refresh")
     args = parser.parse_args()
 
+    RAW.mkdir(parents=True, exist_ok=True)
     DATA_EVENTS.mkdir(parents=True, exist_ok=True)
     DATA_MAPS.mkdir(parents=True, exist_ok=True)
     MAP_ASSETS.mkdir(parents=True, exist_ok=True)
