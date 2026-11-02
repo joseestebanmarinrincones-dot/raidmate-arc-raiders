@@ -1486,6 +1486,7 @@ function switchTab(tab) {
   } else {
     renderRaidView();
   }
+  updateTitle();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
