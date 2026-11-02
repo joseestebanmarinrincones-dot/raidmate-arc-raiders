@@ -15,7 +15,7 @@ import {
 } from "./events.js";
 import { HeatmapView } from "./heatmap.js";
 
-const APP_VERSION = "1.0.0";
+const APP_VERSION = "1.0.1";
 const REPO_URL = "https://github.com/joseestebanmarinrincones-dot/raidmate-arc-raiders";
 const RAW_VERSION_URL = `${REPO_URL.replace("github.com", "raw.githubusercontent.com")}/main/version.json`;
 const STORAGE_KEY = "raidmate:v1";

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 — 2026-11-02
+
+- Corrige el título de la pestaña al cambiar de sección.
+- Evita la comprobación de `/api/health` en GitHub Pages.
+- Crea `data/raw` automáticamente en los workflows de datos.
+
 ## 1.0.0 — 2026-11-02
 
 Primera versión pública.

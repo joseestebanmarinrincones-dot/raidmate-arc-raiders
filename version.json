@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "released": "2026-11-02",
-  "notes": "Primera versión pública: rutas por mapa, timer, eventos por región, mercado comunitario y mapas de calor con zoom."
+  "notes": "Corrige el título de la pestaña al cambiar de sección y evita comprobaciones de API en GitHub Pages."
 }
