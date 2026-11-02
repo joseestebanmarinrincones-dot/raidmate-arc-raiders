@@ -1,0 +1,40 @@
+name: Publish release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build portable ZIP
+        run: |
+          rm -rf data/raw data/cache __pycache__
+          zip -r raidmate-arc-raiders.zip . \
+            -x ".git/*" \
+            -x "data/raw/*" \
+            -x "data/cache/*" \
+            -x "__pycache__/*" \
+            -x "*.pyc"
+          ls -lh raidmate-arc-raiders.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: raidmate-arc-raiders.zip
+          generate_release_notes: true
+          body: |
+            Descarga `raidmate-arc-raiders.zip`, descomprime y ejecuta `start.bat` (Windows) o `python3 server.py --open`.
+
+            También puedes usar la versión web: https://joseestebanmarinrincones-dot.github.io/raidmate-arc-raiders/
+
+            **No es un cheat**: la app no interactúa con ARC Raiders.

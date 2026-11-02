@@ -1,0 +1,20 @@
+# Datos crudos de la build
+data/raw/
+data/cache/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editores / sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Entorno
+.env
+.env.*
